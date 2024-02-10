@@ -156,8 +156,8 @@ Transform:
   m_GameObject: {fileID: 363457480}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.63, y: -0.14, z: -0.28}
+  m_LocalScale: {x: 1, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 72370245}
@@ -192,8 +192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb297663290196e4dbe513b84b2a705f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 10
-  speed: 0
+  jumpForce: 5
+  speed: 3
 --- !u!143 &363457484
 CharacterController:
   m_ObjectHideFlags: 0
@@ -216,9 +216,9 @@ CharacterController:
   m_Height: 1.8
   m_Radius: 0.3
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_StepOffset: 0.31
+  m_SkinWidth: 0.0001
+  m_MinMoveDistance: 0.0001
   m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1 &399690809
 GameObject:
@@ -804,7 +804,7 @@ Transform:
   m_GameObject: {fileID: 1822791729}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.54, z: 0}
+  m_LocalPosition: {x: 0, y: -0.468, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []

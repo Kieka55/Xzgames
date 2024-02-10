@@ -22,11 +22,23 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-       
-        _fallVelocity += _graviti * Time.fixedDeltaTime;
-        _characterController.Move(Vector3.down * _fallVelocity * Time.fixedDeltaTime);
+        
+          
+                  
+                
+
 
         _characterController.Move(_MoveVector * speed * Time.fixedDeltaTime);
+        _fallVelocity += _graviti * Time.fixedDeltaTime;
+        
+        _characterController.Move(Vector3.down * _fallVelocity * Time.fixedDeltaTime);
+        
+        if(_characterController.isGrounded)
+        {
+            _fallVelocity = 0;
+        }    
+        
+       
 
     }
 
