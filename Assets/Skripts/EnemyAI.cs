@@ -7,10 +7,15 @@ public class NewBehaviourScript : MonoBehaviour
 {
     private NavMeshAgent _navMeshAgent;
     private bool _isPlayerNoticed;
+    private PlayerHealth _playerHealth;
 
     public List<Transform> patrolPoints;
     public PlayerController player;
     public float vievAngle;
+    public float damage = 30;
+    
+
+
       
    
     void Start()
@@ -23,16 +28,28 @@ public class NewBehaviourScript : MonoBehaviour
     
     void Update()
     {
+        AttackUpdate();
         NotisedPlayerUpdete();
         ChaseUpdate();
         PetrolUpdate();
+    }
+
+    private void AttackUpdate()
+    {
+        if(_isPlayerNoticed)
+        {
+            if(_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
+            {
+                _playerHealth.DealDamege(damage * Time.deltaTime);
+            }
+        }
     }
 
     private void PetrolUpdate()
     {
         if(! _isPlayerNoticed)
         {
-            if (_navMeshAgent.remainingDistance == 0)
+            if (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
                     {
                         PickNewPatrolPoint();
                     }
@@ -47,6 +64,7 @@ public class NewBehaviourScript : MonoBehaviour
     private void InitComponentLinks()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
+        _playerHealth = player.GetComponent<PlayerHealth>();
     }
 
     private void NotisedPlayerUpdete()
