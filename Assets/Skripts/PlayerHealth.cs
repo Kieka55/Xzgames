@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
 
     private float _MaxValue;
 
-    private void Start()
+    public void Start()
     {
         _MaxValue = value;
     }
@@ -34,9 +34,16 @@ public class PlayerHealth : MonoBehaviour
         GetComponent<FireballCaster>().enabled = false;
         GetComponent<PlayerMove>().enabled = false;
     }    
-    private void DrawHealthBar()
+    public void DrawHealthBar()
     {
         valueRectTransform.anchorMax = new Vector2(value / _MaxValue, 1);
         valueRectTransform.right = new Vector2(0,0);
+    }
+
+    public void AddHealth(float amount)
+    {
+        value += amount;
+        value = Mathf.Clamp(value, 0, _MaxValue);
+        DrawHealthBar();
     }
 }
